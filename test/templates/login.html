@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="231639032823-akhb20k45amkrd4p3kntamdlvkd8qgr5.apps.googleusercontent.com">
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    </div>
+    <script>
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            var id_token = googleUser.getAuthResponse().id_token;
+            window.location.href = "/login/google?token=" + id_token;
+        }
+    </script>
+</body>
+</html>
